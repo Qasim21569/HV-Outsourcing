@@ -151,11 +151,11 @@ const KeyDataInsights: React.FC = () => {
         </div>
 
         {/* Data Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {dataPoints.map((point, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 p-6 transition-all duration-500 hover:scale-105 transform ${
+              className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 p-4 sm:p-6 transition-all duration-500 hover:scale-105 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-10 opacity-0'
@@ -171,7 +171,7 @@ const KeyDataInsights: React.FC = () => {
 
               {/* Value */}
               <div className="mb-2">
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
                   {point.value}
                 </div>
                 {point.period && (
@@ -182,7 +182,7 @@ const KeyDataInsights: React.FC = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
                 {point.title}
               </h3>
 

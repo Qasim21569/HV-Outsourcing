@@ -96,11 +96,11 @@ const ClientSupport: React.FC = () => {
         </div>
 
         {/* Support Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {supportFeatures.map((feature, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 p-6 transform hover:scale-105 transition-all duration-300 ${
+              className={`bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-10 opacity-0'

@@ -95,11 +95,11 @@ const FlexibilityScalability: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {capabilities.map((capability, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl shadow-lg hover:shadow-xl border-2 border-gray-100 hover:border-[#E70051]/30 p-6 transform hover:scale-105 transition-all duration-300 ${
+              className={`bg-white rounded-xl shadow-lg hover:shadow-xl border-2 border-gray-100 hover:border-[#E70051]/30 p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-10 opacity-0'
@@ -113,7 +113,7 @@ const FlexibilityScalability: React.FC = () => {
               </div>
               
               <div className="mb-3">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
                   {capability.title}
                 </h3>
                 <div className="inline-block bg-[#E70051]/10 text-[#E70051] text-xs font-bold px-3 py-1 rounded-full">

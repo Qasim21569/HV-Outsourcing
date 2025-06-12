@@ -246,7 +246,7 @@ const IndustryExperience: React.FC = () => {
         </div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {industries.map((industry, index) => (
             <IndustryCard key={industry.id} industry={industry} index={index} />
           ))}
@@ -256,7 +256,7 @@ const IndustryExperience: React.FC = () => {
         <div className={`mt-16 text-center transform transition-all duration-1000 delay-800 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
               <div className="text-3xl font-bold text-[#E70051] mb-2">8+</div>
               <div className="text-gray-600">Industries Served</div>

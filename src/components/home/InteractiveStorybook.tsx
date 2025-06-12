@@ -86,17 +86,17 @@ const InteractiveStorybook: React.FC = () => {
         </div>
 
         {/* Storybook Preview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {storyPages.slice(0, 3).map((page, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 cursor-pointer"
               onClick={() => {
                 setCurrentPage(index);
                 setIsOpen(true);
               }}
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">
                 {page.title}
               </h3>
               <p className="text-gray-600 text-sm line-clamp-3">

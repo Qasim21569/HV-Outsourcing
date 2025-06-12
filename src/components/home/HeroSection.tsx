@@ -132,19 +132,19 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className={`flex items-center space-x-8 pt-8 transform transition-all duration-1000 delay-1000 ${
+            <div className={`flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8 pt-8 transform transition-all duration-1000 delay-1000 ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900">180+</div>
                 <div className="text-sm text-gray-600">Active Agents</div>
               </div>
-              <div className="w-px h-12 bg-gray-200" />
+              <div className="hidden sm:block w-px h-12 bg-gray-200" />
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900">40K+</div>
                 <div className="text-sm text-gray-600">Daily Calls</div>
               </div>
-              <div className="w-px h-12 bg-gray-200" />
+              <div className="hidden sm:block w-px h-12 bg-gray-200" />
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900">96%</div>
                 <div className="text-sm text-gray-600">Quality Score</div>

@@ -192,17 +192,17 @@ const ClientSupport: React.FC = () => {
         }`}>
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Flexibility & Scalability</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {scalabilityMetrics.map((metric, index) => (
               <div 
                 key={index}
-                className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="text-center p-4 sm:p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <metric.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{metric.metric}</div>
-                <div className="text-lg font-semibold text-blue-600 mb-1">{metric.label}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{metric.metric}</div>
+                <div className="text-base sm:text-lg font-semibold text-blue-600 mb-1">{metric.label}</div>
                 <div className="text-sm text-gray-600">{metric.description}</div>
               </div>
             ))}

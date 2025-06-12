@@ -7,7 +7,7 @@ import InteractiveStorybook from '../components/home/InteractiveStorybook';
 import CorporateOverview from '../components/home/CorporateOverview';
 import TechInfrastructure from '../components/home/TechInfrastructure';
 import EmployeeCommitment from '../components/home/EmployeeCommitment';
-import ClientSupport from '../components/home/ClientSupport';
+// import ClientSupport from '../components/home/ClientSupport';
 
 const Home: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       <CorporateOverview />
       <TechInfrastructure />
       <EmployeeCommitment />
-      <ClientSupport />
+      {/* <ClientSupport /> */}
       <InteractiveStorybook />
     </div>
   );

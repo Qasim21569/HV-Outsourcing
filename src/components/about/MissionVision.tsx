@@ -223,11 +223,11 @@ const MissionVision: React.FC = () => {
             </p>
           </div>
           
-          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {coreValues.map((value, index) => (
               <div
                 key={index}
-                className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 p-8 transition-all duration-500 cursor-pointer ${
+                className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 p-6 lg:p-8 transition-all duration-500 cursor-pointer ${
                   activeCard === index ? 'scale-105 shadow-2xl' : 'hover:scale-102'
                 }`}
                 onMouseEnter={() => setActiveCard(index)}
@@ -242,7 +242,7 @@ const MissionVision: React.FC = () => {
                       <value.icon className="w-7 h-7 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                      <h4 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
                         {value.title}
                       </h4>
                       <div className={`inline-block px-3 py-1 ${value.bgColor} text-gray-700 text-sm font-medium rounded-full`}>
@@ -268,7 +268,7 @@ const MissionVision: React.FC = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <div className="bg-gradient-to-r from-[#E70051]/10 via-white to-[#FF6B9D]/10 rounded-3xl p-8 border border-[#E70051]/10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-[#E70051] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />

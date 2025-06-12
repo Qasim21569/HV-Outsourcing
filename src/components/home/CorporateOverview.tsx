@@ -132,19 +132,19 @@ const CorporateOverview: React.FC = () => {
         </div>
 
         {/* Corporate Stats */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 transform transition-all duration-1000 delay-500 ${
+        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 transform transition-all duration-1000 delay-500 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           {corporateStats.map((stat, index) => (
             <div 
               key={index}
-              className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="text-center p-4 sm:p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-[#E70051] to-[#FF6B9D] rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-lg font-semibold text-[#E70051] mb-1">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+              <div className="text-base sm:text-lg font-semibold text-[#E70051] mb-1">{stat.label}</div>
               <div className="text-sm text-gray-600">{stat.description}</div>
             </div>
           ))}

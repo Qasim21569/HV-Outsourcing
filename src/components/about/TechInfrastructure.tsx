@@ -89,11 +89,11 @@ const TechInfrastructure: React.FC = () => {
         </div>
 
         {/* Tech Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {techFeatures.map((feature, index) => (
             <div
               key={index}
-              className={`bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 p-6 transform hover:scale-105 transition-all duration-300 ${
+              className={`bg-white rounded-2xl shadow-xl p-6 lg:p-8 border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 group ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-10 opacity-0'
