@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first responsive fixes */
+@media (max-width: 640px) {
+  /* Ensure all elements are visible on mobile */
+  * {
+    min-height: 0 !important;
+  }
+  
+  /* Prevent overflow issues */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Ensure sections have minimum visibility */
+  section {
+    min-height: auto !important;
+    opacity: 1 !important;
+  }
+  
+  /* Force visibility for transformed elements */
+  .transform {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* Ensure grid items are visible */
+  .grid > * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .animate-subtle-float {
+    animation: none;
+  }
+  
+  /* Ensure background elements don't interfere */
+  .absolute {
+    pointer-events: none;
+  }
+}
+
 /* Performance-optimized animations and accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -11,6 +52,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transform: none !important;
   }
 }
 
@@ -104,6 +146,23 @@
 
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Mobile-safe visibility */
+@media (max-width: 768px) {
+  /* Force show elements that might be hidden by animations */
+  .transform[class*="opacity-0"] {
+    opacity: 1 !important;
+  }
+  
+  .transform[class*="translate-y-10"] {
+    transform: translateY(0) !important;
+  }
+  
+  /* Ensure text is always visible */
+  .text-responsive-xl {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  }
 }
 
 /* Custom utility classes */

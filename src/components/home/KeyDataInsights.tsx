@@ -98,13 +98,20 @@ const KeyDataInsights: React.FC = () => {
   ];
 
   useEffect(() => {
+    // Mobile fallback - show content immediately on mobile
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 } // Reduced threshold for better mobile visibility
     );
 
     if (sectionRef.current) {
@@ -115,25 +122,25 @@ const KeyDataInsights: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Design */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#E70051]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#FF6B9D]/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#E70051]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-40 h-40 sm:w-80 sm:h-80 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-96 sm:h-96 bg-[#FF6B9D]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className={`inline-flex items-center space-x-2 bg-[#E70051]/10 px-4 py-2 rounded-full mb-6 transform transition-all duration-1000 ${
+        <div className="text-center mb-12 sm:mb-16">
+          <div className={`inline-flex items-center space-x-2 bg-[#E70051]/10 px-3 py-2 rounded-full mb-4 sm:mb-6 transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             <Target className="w-4 h-4 text-[#E70051]" />
-            <span className="text-sm font-medium text-[#B8003F]">Performance Metrics</span>
+            <span className="text-xs sm:text-sm font-medium text-[#B8003F]">Performance Metrics</span>
           </div>
           
-          <h2 className={`text-4xl md:text-6xl font-bold mb-6 transform transition-all duration-1000 delay-200 ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 transform transition-all duration-1000 delay-200 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             <span className="text-gray-900">Key Data</span><br />
@@ -142,7 +149,7 @@ const KeyDataInsights: React.FC = () => {
             </span>
           </h2>
           
-          <p className={`text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transform transition-all duration-1000 delay-400 ${
+          <p className={`text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed transform transition-all duration-1000 delay-400 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             Real-time performance metrics that showcase our operational excellence and 
@@ -151,48 +158,48 @@ const KeyDataInsights: React.FC = () => {
         </div>
 
         {/* Data Points Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {dataPoints.map((point, index) => (
             <div
               key={index}
-              className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 p-4 sm:p-6 transition-all duration-500 hover:scale-105 transform ${
+              className={`group bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 p-4 sm:p-6 transition-all duration-500 hover:scale-105 transform ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-10 opacity-0'
               }`}
               style={{
-                transitionDelay: `${600 + index * 100}ms`
+                transitionDelay: `${200 + index * 100}ms`
               }}
             >
               {/* Icon */}
-              <div className={`w-12 h-12 ${point.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <point.icon className="w-6 h-6 text-white" />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 ${point.iconBg} rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <point.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
 
               {/* Value */}
               <div className="mb-2">
-                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
                   {point.value}
                 </div>
                 {point.period && (
-                  <div className="text-sm text-gray-500 font-medium">
+                  <div className="text-xs sm:text-sm text-gray-500 font-medium">
                     {point.period}
                   </div>
                 )}
               </div>
 
               {/* Title */}
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
                 {point.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 {point.description}
               </p>
 
               {/* Bottom accent */}
-              <div className={`mt-4 h-1 bg-gradient-to-r ${point.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+              <div className={`mt-3 sm:mt-4 h-1 bg-gradient-to-r ${point.color} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
             </div>
           ))}
         </div>
