@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center mb-4">
               <img
                 src="/HVoutsourcingfavicon.webp"
-                alt="HV Outsourcing Logo"
+                alt="HV Outsourcing - Premier BPO and Call Center Services in Makati Philippines"
                 className="h-10 w-auto object-contain scale-[2.35]"
               />
             </div>

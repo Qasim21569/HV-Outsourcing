@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import CalendlyButton from '../CalendlyButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,7 +109,7 @@ const WhyChooseHV: React.FC = () => {
     {
       icon: Heart,
       title: "Employee-Centric Culture (HV is COOL)",
-      description: "We've built a workplace people love. From catered meals and creative break areas to video games and a full-size basketball hoop.",
+      description: "We've built a workplace people love. From Free Food Friday celebrations and creative break areas to video games and a full-size basketball hoop.",
       color: "from-pink-500 to-pink-600",
       shadowColor: "shadow-pink-500/30",
       isCulture: true
@@ -182,9 +183,12 @@ const WhyChooseHV: React.FC = () => {
             <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
               Join industry leaders who have transformed their operations with our proven solutions.
             </p>
-            <button className="btn-liquid-fill px-8 py-3 bg-white text-[#E70051] rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-              Get Started Today
-            </button>
+            <CalendlyButton
+              text="Get Started Today"
+              variant="desktop"
+              trackingLabel="Why Choose HV - Get Started Today"
+              className="px-8 py-3 bg-white text-[#E70051] hover:bg-gray-100 font-semibold rounded-lg"
+            />
           </div>
         </div>
       </div>

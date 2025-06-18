@@ -126,7 +126,7 @@ const EmployeeCommitment: React.FC = () => {
                 <li>• Team competitions with exciting prizes</li>
                 <li>• Break areas with beanbags and video games</li>
                 <li>• Table tennis and full-size basketball hoop</li>
-                <li>• Catered meals and themed events</li>
+                <li>• Free Food Friday and themed events</li>
                 <li>• Weekend team-building activities</li>
               </ul>
               

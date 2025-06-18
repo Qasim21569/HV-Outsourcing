@@ -34,12 +34,14 @@ const CareersHero: React.FC = () => {
               and drive results in a supportive, growth-oriented environment.
             </p>
 
-            <Link
-              to="/contact"
+            <a
+              href="https://www.facebook.com/profile.php?id=61574130661216"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#E70051] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 transition-all duration-200 inline-flex items-center"
             >
               Apply Now
-            </Link>
+            </a>
 
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-6 mt-12">

@@ -73,13 +73,15 @@ const CareersCallToAction: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
+            <a
+              href="https://www.facebook.com/profile.php?id=61574130661216"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#E70051] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 transition-all duration-200 flex items-center justify-center group"
             >
               Apply Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
             
             <Link
               to="/contact"

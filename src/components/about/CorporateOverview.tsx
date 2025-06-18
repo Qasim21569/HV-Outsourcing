@@ -32,7 +32,7 @@ const CorporateOverview: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px 0px' }
     );
 
     if (sectionRef.current) {
@@ -69,7 +69,7 @@ const CorporateOverview: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background Design */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white" />
@@ -123,10 +123,11 @@ const CorporateOverview: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">Our Evolution Timeline</h3>
           
           <div ref={timelineRef} className="relative">
-            {/* Timeline line */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#E70051] via-[#FF6B9D] to-[#B8003F] rounded-full transform -translate-y-1/2" />
+            {/* Timeline line - hidden on mobile, shown on larger screens */}
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#E70051] via-[#FF6B9D] to-[#B8003F] rounded-full transform -translate-y-1/2" />
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {/* Desktop Grid Layout */}
+            <div className="hidden lg:grid lg:grid-cols-4 gap-8">
               {timeline.map((item, index) => (
                 <div 
                   key={index}
@@ -154,11 +155,60 @@ const CorporateOverview: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            {/* Mobile Horizontal Scroll Layout */}
+            <div className="lg:hidden">
+              <div 
+                className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide" 
+                style={{ 
+                  WebkitOverflowScrolling: 'touch'
+                }}
+              >
+                {timeline.map((item, index) => (
+                  <div 
+                    key={index}
+                    className={`flex-shrink-0 w-72 bg-white rounded-2xl p-6 shadow-lg border-2 transition-all duration-500 cursor-pointer snap-center ${
+                      activeTimeline === index 
+                        ? 'border-[#E70051] shadow-xl' 
+                        : 'border-gray-100'
+                    }`}
+                    onClick={() => setActiveTimeline(index)}
+                  >
+                    <div className="text-center">
+                      <div className={`w-16 h-16 rounded-full ${item.color} flex items-center justify-center mx-auto mb-4 transition-all duration-500 ${
+                        activeTimeline === index ? 'scale-110' : 'scale-100'
+                      }`}>
+                        <span className="text-white font-bold text-lg">{item.year}</span>
+                      </div>
+                      <div className={`text-xl font-bold mb-2 transition-colors duration-300 ${
+                        activeTimeline === index ? 'text-[#E70051]' : 'text-gray-900'
+                      }`}>
+                        {item.title}
+                      </div>
+                      <div className="text-gray-600">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Mobile scroll indicator */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {timeline.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTimeline(index)}
+                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                      activeTimeline === index ? 'bg-[#E70051]' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-20">
           
           {/* Left: Company Story */}
           <div className={`space-y-8 transform transition-all duration-1000 delay-800 ${
@@ -166,7 +216,7 @@ const CorporateOverview: React.FC = () => {
           }`}>
             
             {/* Premier BPO Card */}
-            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-[#E70051]/20 p-8 transition-all duration-500">
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-[#E70051]/20 p-6 lg:p-8 transition-all duration-500">
               <div className="flex items-start space-x-4 mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-[#E70051] to-[#B8003F] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Award className="w-7 h-7 text-white" />
@@ -196,7 +246,7 @@ const CorporateOverview: React.FC = () => {
             </div>
 
             {/* Foundation Story Card */}
-            <div className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg hover:shadow-2xl border border-blue-100 hover:border-blue-200 p-8 transition-all duration-500">
+            <div className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-lg hover:shadow-2xl border border-blue-100 hover:border-blue-200 p-6 lg:p-8 transition-all duration-500">
               <div className="flex items-start space-x-4 mb-6">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Target className="w-7 h-7 text-white" />
@@ -222,7 +272,7 @@ const CorporateOverview: React.FC = () => {
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
           }`}>
             
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
                 Our Impact by the Numbers
               </h3>
@@ -248,7 +298,7 @@ const CorporateOverview: React.FC = () => {
         </div>
 
         {/* Success Story Showcase */}
-        <div className={`bg-gradient-to-br from-[#E70051]/5 via-white to-[#FF6B9D]/5 rounded-3xl p-8 md:p-12 shadow-2xl border border-[#E70051]/10 transform transition-all duration-1000 delay-1200 ${
+        <div className={`bg-gradient-to-br from-[#E70051]/5 via-white to-[#FF6B9D]/5 rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl border border-[#E70051]/10 transform transition-all duration-1000 delay-1200 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           
@@ -268,7 +318,7 @@ const CorporateOverview: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 mb-10">
             {successMetrics.map((metric, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <div className="text-3xl md:text-4xl font-bold text-[#E70051] mb-2">

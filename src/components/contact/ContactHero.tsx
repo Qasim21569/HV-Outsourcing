@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MessageCircle, Users, ArrowRight } from 'lucide-react';
+import CalendlyButton from '../CalendlyButton';
 
 const ContactHero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,10 +43,12 @@ const ContactHero: React.FC = () => {
                 <p className="text-gray-600 mb-4">
                   Ready to scale your business with our BPO services?
                 </p>
-                <button className="bg-[#E70051] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#B8003F] transition-colors duration-200 flex items-center mx-auto">
-                  Get Started
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
+                <CalendlyButton
+                  text="Get Started"
+                  variant="desktop"
+                  trackingLabel="Contact Hero - Client Inquiries"
+                  className="px-6 py-2 font-medium mx-auto text-sm"
+                />
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300 max-w-sm">
@@ -56,10 +59,15 @@ const ContactHero: React.FC = () => {
                 <p className="text-gray-600 mb-4">
                   Join our team and build a rewarding career with us.
                 </p>
-                <button className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-200 flex items-center mx-auto">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61574130661216"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-blue-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-200 mx-auto"
+                >
                   Apply Now
                   <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       <WhyChooseHV />
       <KeyDataInsights />
       <IndustryExperience />
-      <CorporateOverview />
+      {/* <CorporateOverview /> */}
       <TechInfrastructure />
       <EmployeeCommitment />
       {/* <ClientSupport /> */}

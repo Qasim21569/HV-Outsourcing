@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart,
   Coffee,
@@ -9,7 +10,6 @@ import {
   Gift,
   Smile,
   Home,
-  Car,
   Shield,
   Plus
 } from 'lucide-react';
@@ -38,8 +38,8 @@ const EmployeeCommitment: React.FC = () => {
   const benefits = [
     {
       icon: Coffee,
-      title: 'Free Lunch and Snacks Daily',
-      description: 'Catered meals and premium snacks to keep you energized',
+      title: 'Free Food Friday',
+      description: 'Special catered meals and premium snacks every Friday to celebrate the week',
       category: 'Wellness'
     },
     {
@@ -204,7 +204,7 @@ const EmployeeCommitment: React.FC = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div className="text-center">
                   <Coffee className="w-12 h-12 mx-auto mb-3 animate-bounce" />
-                  <div className="font-semibold">Free Daily Meals</div>
+                  <div className="font-semibold">Free Food Friday</div>
                 </div>
                 <div className="text-center">
                   <Gamepad2 className="w-12 h-12 mx-auto mb-3 animate-pulse" />
@@ -233,23 +233,27 @@ const EmployeeCommitment: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#E70051] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 btn-liquid-fill shadow-lg">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61574130661216"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#E70051] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 btn-liquid-fill shadow-lg"
+              >
                 <Plus className="w-5 h-5 inline mr-2" />
                 Join Our Team
-              </button>
-              <button className="border-2 border-[#E70051] text-[#E70051] px-8 py-4 rounded-lg font-semibold hover:bg-[#E70051] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg">
+              </a>
+              <Link 
+                to="/careers"
+                className="inline-block border-2 border-[#E70051] text-[#E70051] px-8 py-4 rounded-lg font-semibold hover:bg-[#E70051] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-lg"
+              >
                 View Open Positions
-              </button>
+              </Link>
             </div>
             
             <div className="mt-6 flex justify-center items-center space-x-6 text-sm text-gray-500">
               <div className="flex items-center space-x-2">
-                <Car className="w-4 h-4" />
-                <span>Free Parking</span>
-              </div>
-              <div className="flex items-center space-x-2">
                 <Coffee className="w-4 h-4" />
-                <span>Free Meals</span>
+                <span>Free Food Friday</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="w-4 h-4" />

@@ -430,3 +430,13 @@
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
 }
+
+/* Hide scrollbars for horizontal scrolling elements */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

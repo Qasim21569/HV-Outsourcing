@@ -39,8 +39,8 @@ const WhyChooseUs: React.FC = () => {
     },
     {
       icon: Coffee,
-      title: "Free Lunch and Snacks Daily",
-      description: "Enjoy catered meals and snacks throughout the day, keeping you energized",
+      title: "Free Food Friday",
+      description: "Enjoy special catered meals and snacks every Friday as our weekly celebration",
       color: "bg-orange-500"
     },
     {

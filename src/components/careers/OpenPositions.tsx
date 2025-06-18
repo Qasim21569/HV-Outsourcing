@@ -246,9 +246,14 @@ const OpenPositions: React.FC = () => {
 
             {/* Apply Button */}
             <div className="mt-8 text-center">
-              <button className="bg-[#E70051] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 transition-all duration-200">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61574130661216"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#E70051] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B8003F] transform hover:scale-105 transition-all duration-200"
+              >
                 Apply for this Position
-              </button>
+              </a>
             </div>
           </div>
         </div>
